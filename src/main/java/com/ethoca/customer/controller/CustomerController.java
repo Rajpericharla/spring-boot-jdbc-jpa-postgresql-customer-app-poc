@@ -41,14 +41,18 @@ public class CustomerController {
 	public ResponseEntity<String> insertCustomers() {
 		System.out.println("insertCustomers()");
 		try {
-			List<Customer> customerList = new ArrayList<>();
-			for (int i = 1; i <= 2000000; i++) {
-				customerList.add(new Customer(i, "Echoca#" + i, "BF-US#" + i, "US#" + i));
-				if (i % 50000 == 0) {
-					customerRepository.saveAll(customerList);
-					customerList.clear();
+			Thread t = new Thread(() -> {
+				List<Customer> customerList = new ArrayList<>();
+				for (int i = 1; i <= 2000000; i++) {
+					customerList.add(new Customer(i, "Echoca#" + i, "BF-US#" + i, "US#" + i));
+					if (i % 50000 == 0) {
+						customerRepository.saveAll(customerList);
+						customerList.clear();
+					}
 				}
-			}
+			});
+			t.start();
+			
 			return new ResponseEntity<>("SUCCESS", HttpStatus.CREATED);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
