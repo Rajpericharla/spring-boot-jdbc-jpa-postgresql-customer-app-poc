@@ -114,7 +114,7 @@ public class CustomerController {
 		System.out.println("getAllCustomersStreamingResponse()");
 		StreamingResponseBody customersStreamingResponseBody = response -> {
 			Writer writer = new BufferedWriter(new OutputStreamWriter(response));
-			writer.write("ID, NAME, SECTOR, LOC"+"\n");
+			writer.write("ID, NAME, SECTOR, LOC" + "\n");
 			int maxRecords = 200;
 			for (int i = 0; i < maxRecords; i++) {
 				List<Customer> customers = new ArrayList<Customer>();
