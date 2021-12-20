@@ -45,7 +45,7 @@ public class CustomerController {
 				List<Customer> customerList = new ArrayList<>();
 				for (int i = 1; i <= 2000000; i++) {
 					customerList.add(new Customer(i, "Echoca#" + i, "BF-US#" + i, "US#" + i));
-					if (i % 50000 == 0) {
+					if (i % 100000 == 0) {
 						customerRepository.saveAll(customerList);
 						customerList.clear();
 					}
