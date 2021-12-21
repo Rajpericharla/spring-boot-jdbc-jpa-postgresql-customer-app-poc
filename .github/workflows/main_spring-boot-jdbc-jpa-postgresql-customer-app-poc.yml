@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'spring-boot-jdbc-jpa-postgresql-customer-app-poc'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CFCE394BC73F4F0482CD9089162A72A0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2453D4BD82F147B7AEE70D2F26DAF226 }}
           package: '*.jar'
